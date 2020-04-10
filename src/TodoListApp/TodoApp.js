@@ -2,6 +2,8 @@
 
 import React, { Component} from 'react'
 import Todos from '../Components/Todos'
+import Header from '../Components/Header'
+import AddTodo from '../Components/AddTodo'
 
 class TodoApp extends Component {
     state = {
@@ -21,7 +23,7 @@ class TodoApp extends Component {
             {
                 id: 3,
                 title: 'Create React App',
-                description: 'React is One of the Top tools in industry',
+                description: 'React is One of the Top Tools in industry',
                 done: false
             }
         
@@ -69,14 +71,23 @@ class TodoApp extends Component {
         }
     }
 
+    onClick = (title, description) => {
+        const newTodo = {
+            id:4,
+            title,
+            description: description,
+            done: false
+        }
+        this.setState({todos: [...this.state.todos,newTodo] });
+        console.log(title, '  <==>   ', description)
+    }
 
     render(){
         console.log(this.state.todos)
         return (
             <div style={this.outerdiv()} >
-                <h1>
-                    TodoList App 
-                </h1>
+                <Header />
+                <AddTodo onClick={this.onClick}/>
                 <div style={this.innerdiv()}>
                     <Todos markComplete={this.markComplete} todos={this.state.todos} delete={this.delete} />
                 </div>
