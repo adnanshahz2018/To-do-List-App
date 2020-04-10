@@ -4,24 +4,25 @@ import React, { Component} from 'react'
 import Todos from '../Components/Todos'
 import Header from '../Components/Header'
 import AddTodo from '../Components/AddTodo'
+import uuid from 'react-uuid'
 
 class TodoApp extends Component {
     state = {
         todos: [
             {
-                id: 1,
+                id: uuid(),
                 title: 'Search React Course',
                 description: 'Look for it excluding udemy and coursera',
                 done: false
             },
             {
-                id: 2,
+                id: uuid(),
                 title: 'Install Node and npm',
                 description: "You can't buid without environment setup",
                 done: false
             },
             {
-                id: 3,
+                id: uuid(),
                 title: 'Create React App',
                 description: 'React is One of the Top Tools in industry',
                 done: false
@@ -51,7 +52,7 @@ class TodoApp extends Component {
 
     outerdiv = () => {
         return {
-            width: '40%',
+            width: '50%',
             alignItem: 'center',
             margin: '0 auto',
             border: '2px solid green',
@@ -73,7 +74,7 @@ class TodoApp extends Component {
 
     onClick = (title, description) => {
         const newTodo = {
-            id:4,
+            id: uuid(),
             title,
             description: description,
             done: false

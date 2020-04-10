@@ -10,56 +10,57 @@ export class AddTodo extends Component {
     this.setState({[e.target.name]: e.target.value });
   }
 
-
   render() {
     return (
-      <div>
-        <div style={{ padding: "10px 0px 10px 0px" }}>
-            <input
+        <div style={{ position: 'relative', padding: "10px 0px 10px 0px" }}>
+              <input
               type="text"
               style={{ 
                 padding: '2px',
+                position: 'relative',
                 height: "20px", 
                 border: "1px solid blue" 
               }}
               name="title"
-              placeholder=" Title"
+              placeholder=" TITLE"
               value = {this.state.title}
               onChange={this.onChange}
-              required
+              required = 'required'
             />{" "}
             <input
               type="text"
               style={{
                 padding: '2px',
-                width: "280px",
+                position: 'relative',
                 height: "20px",
                 border: "1px solid blue",
               }}
               name="description"
-              placeholder=" Descriotion"
+              placeholder=" Description"
               value = {this.state.description}
               onChange={this.onChange}
             />
             {"  "}
             <button 
-              style={addButton} 
+              style={addButton}  
               onClick={this.props.onClick.bind(this,this.state.title, this.state.description)}>
-              Add Item 
+              ADD ITEM
             </button>
         </div>
-      </div>
     );
   }
 }
+
+
 
 const addButton = {
   background: "indigo",
   color: "white",
   textAlign: "center",
+  position: 'relative',
   border: "None",
   height: "20px",
-  alignItem: "left",
+  alignItem: "left"
 };
 
 export default AddTodo;
