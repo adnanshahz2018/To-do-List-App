@@ -14,9 +14,8 @@ export class Item extends Component {
     }
 
     getdescription = (todo) => {
-
         if(!todo.done){
-            return <p> {todo.description}</p>
+            return todo.description;
         }
     }
 
@@ -29,7 +28,9 @@ export class Item extends Component {
                  <button style={buttontStyle}  onClick={this.props.delete.bind(this,id)}>
                      Delete
                  </button>
-                 {this.getdescription(this.props.todo)}
+                 {/* <div style={this.getStyle()}> */}
+                    <p> {this.getdescription(this.props.todo)} </p>
+                {/* </div> */}
             </div>
         )
     }
@@ -44,7 +45,6 @@ const buttontStyle = {
     color: 'white',
     padding: '5px 10px',
     border: 'none',
-    // borderRadius: '40%',
     cursor: 'pointer',
     float: 'right'
 }
