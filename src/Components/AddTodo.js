@@ -13,7 +13,7 @@ export class AddTodo extends Component {
   render() {
     return (
         <div style={{ position: 'relative', padding: "10px 0px 10px 0px" }}>
-              <input
+              <div><input
               type="text"
               style={{ 
                 padding: '2px',
@@ -26,8 +26,9 @@ export class AddTodo extends Component {
               value = {this.state.title}
               onChange={this.onChange}
               required = 'required'
-            />{" "}
-            <input
+            /></div>
+            {" "}
+            <div><input
               type="text"
               style={{
                 padding: '2px',
@@ -39,13 +40,13 @@ export class AddTodo extends Component {
               placeholder=" Description"
               value = {this.state.description}
               onChange={this.onChange}
-            />
+            /></div>
             {"  "}
-            <button 
+            <div><button 
               style={addButton}  
               onClick={this.props.onClick.bind(this,this.state.title, this.state.description)}>
               ADD ITEM
-            </button>
+            </button></div>
         </div>
     );
   }

@@ -1,10 +1,14 @@
 
 
 import React, { Component} from 'react'
+import{BrowserRouter as Router, Route} from 'react-router-dom'
+import uuid from 'react-uuid'
+
+import Uses from '../Components/pages/Uses'
+import About from '../Components/pages/About'
 import Todos from '../Components/Todos'
 import Header from '../Components/Header'
 import AddTodo from '../Components/AddTodo'
-import uuid from 'react-uuid'
 
 class TodoApp extends Component {
     state = {
@@ -86,13 +90,22 @@ class TodoApp extends Component {
     render(){
         console.log(this.state.todos)
         return (
+            <Router>
             <div style={this.outerdiv()} >
                 <Header />
-                <AddTodo onClick={this.onClick}/>
-                <div style={this.innerdiv()}>
-                    <Todos markComplete={this.markComplete} todos={this.state.todos} delete={this.delete} />
-                </div>
+                <Route exact path="/" render={props => (
+                    <React.Fragment>
+                        <AddTodo onClick={this.onClick}/>
+                        <div style={this.innerdiv()}>
+                            <Todos markComplete={this.markComplete} todos={this.state.todos} delete={this.delete} />
+                        </div>
+                    </React.Fragment>
+                )} />
+                <Route path='/about'  component={About} />
+                <Route path='/uses'  component={Uses} />
+
            </div>
+           </Router>
         );
     }
 }
