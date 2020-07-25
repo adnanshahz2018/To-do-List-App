@@ -16,6 +16,6 @@ export default function Header() {
 
 const headerStyle = {
     textAlign: 'center',
-    color: 'indigo'
+    color: 'indigo',
 
 } 
