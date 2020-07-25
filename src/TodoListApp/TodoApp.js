@@ -101,6 +101,7 @@ class TodoApp extends Component {
                         </div>
                     </React.Fragment>
                 )} />
+                
                 <Route path='/about'  component={About} />
                 <Route path='/uses'  component={Uses} />
 
